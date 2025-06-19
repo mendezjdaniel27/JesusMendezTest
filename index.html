@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Desarrollador Fullstack</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #121212;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease forwards;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #222;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #00bcd4;
+        }
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #00bcd4;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            animation: fadeInLeft 1s ease forwards;
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        .bio, .tools {
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .tool {
+            background: #333;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        .tool:hover {
+            background: #00bcd4;
+            color: #121212;
+            cursor: default;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1f1f1f;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>Portafolio Desarrollador Fullstack</header>
+    <nav>
+        <a href="#bio">Biografía</a>
+        <a href="#tools">Herramientas</a>
+    </nav>
+    <section id="bio" class="bio">
+        <h2>Acerca de mí</h2>
+        <p>Hola, soy un desarrollador Fullstack con experiencia en desarrollo web usando Laravel y Symfony. Me apasiona crear soluciones eficientes e integraciones con herramientas como Tableau Server, además de resolver problemas complejos de proxy y HTTPS.</p>
+    </section>
+    <section id="tools" class="tools">
+        <h2>Herramientas que utilizo</h2>
+        <div class="tools-list">
+            <div class="tool">HTML5</div>
+            <div class="tool">CSS3</div>
+            <div class="tool">JavaScript</div>
+            <div class="tool">Laravel</div>
+            <div class="tool">Symfony</div>
+            <div class="tool">Tableau Server</div>
+            <div class="tool">Proxy & HTTPS</div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2025 Portafolio Desarrollador Fullstack
+    </footer>
+    <script>
+        // Animación simple para el header al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            header.style.opacity = 1;
+        });
+    </script>
+</body>
+</html>
