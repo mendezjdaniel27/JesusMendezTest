@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import './assets/Tooltip.css'; // Importa este CSS manualmente
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
+import { faCircleHalfStroke, faDatabase, faServer, faPalette, faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import { faHtml5, faCss3Alt, faJsSquare, faReact, faNodeJs, faGithub, faLinkedin,
+         faGitAlt, faDocker, faAngular, faPython, faPhp, faLaravel, faVuejs, faWordpress } from '@fortawesome/free-brands-svg-icons';
+import FullstackDevImg from '/img/fullstack.png';
+
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -24,7 +28,7 @@ export default function App() {
 
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className="px-4 py-2 border-green-500 dark:border-green-900 rounded-md border-2 dark:bg-green-200 dark:text-black text-green-400 bg-gray-900 hover:bg-green-800 dark:hover:bg-green-300"
+          className="hover:scale-110 transition-transform duration-100 px-4 py-2 border-green-500 dark:border-green-900 rounded-md border-2 dark:bg-green-200 dark:text-black text-green-400 bg-gray-900 hover:bg-green-800 dark:hover:bg-green-300"
         >
        <FontAwesomeIcon icon={faCircleHalfStroke} className="dark:text-black text-green-400" />
         {darkMode ? " Claro" : " Oscuro"}
@@ -32,23 +36,105 @@ export default function App() {
       </header>
 
       {/* Main */}
-      <main className="max-w-4xl mx-auto p-6 space-y-20">
+      <main className="max-w-5xl mx-auto p-6 space-y-20">
+        
         {/* Sobre mí */}
         <section id="about" className="animate-fadeInUp">
-          <h2 className="text-5xl font-bold mt-10 pt-5  text-green-700 dark:text-green-400">Hola, soy Jesús Méndez</h2>
-          
-          <p className="dark:text-gray-500 mt-2 text-gray-800 leading-relaxed text-xl max-w-prose">
-            ~Ingeniero en Informática.
-          </p>
+          <div className="flex flex-col  md:flex-row-reverse items-center md:items-start gap-5">            
+            <img
+              src={FullstackDevImg}
+              alt="Fullstack Developer"
+              className="w-64 md:w-80 lg:w-96 md:mt-8 lg:mt-0 rounded-lg shadow-lg"
+            />
 
-          <p className="dark:text-gray-300 mt-5 text-gray-800 leading-relaxed text-lg max-w-prose">
-            Soy un desarrollador Fullstack apasionado por crear aplicaciones web modernas y eficientes. Me encanta trabajar con tecnologías actuales y aprender siempre nuevas herramientas.
-          </p>
+            {/* Texto de presentación */}
+            <div>
+              <h2 className="text-5xl font-bold md:mt-0 pt-5 text-green-700 dark:text-green-400">
+                Hola, soy Jesús Méndez
+              </h2>
+
+              <p className="dark:text-gray-500 mt-2 text-gray-800 leading-relaxed text-xl max-w-prose">
+                ~Ingeniero en Informática.
+              </p>
+
+              <p className="dark:text-gray-300 mt-5 text-gray-800 leading-relaxed text-lg max-w-prose">
+                Desarrollador Fullstack apasionado por crear soluciones web modernas, escalables y centradas en la experiencia del usuario. Me enfoco en mantener buenas prácticas de desarrollo, código limpio y aplicar principios de seguridad y diseño responsivo. Siempre estoy en constante aprendizaje, explorando nuevas tecnologías para seguir creciendo como profesional.
+              </p>
+            </div>
+          </div>
         </section>
+
+      {/* Stack tecnologico */}
+      <section id="stack" className="animate-fadeInUp delay-200">
+        <h2 className="text-4xl font-bold mb-8 text-green-700 dark:text-green-400">Stack Tecnológico</h2>
+        
+        <span className="relative group cursor-pointer" data-tooltip="HTML5">
+          <FontAwesomeIcon icon={faHtml5} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="CSS3">
+          <FontAwesomeIcon icon={faCss3Alt} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="JAVASCRIPT / TYPESCRIPT">
+          <FontAwesomeIcon icon={faJsSquare} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="ANGULAR">
+          <FontAwesomeIcon icon={faAngular} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="REACT">
+          <FontAwesomeIcon icon={faReact} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="NODE JS">
+          <FontAwesomeIcon icon={faNodeJs} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="PYTHON">
+          <FontAwesomeIcon icon={faPython} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="PHP">
+          <FontAwesomeIcon icon={faPhp} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="LARAVEL">
+          <FontAwesomeIcon icon={faLaravel} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="GIT">
+          <FontAwesomeIcon icon={faGitAlt} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="DOCKER">
+          <FontAwesomeIcon icon={faDocker} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="VUE JS">
+          <FontAwesomeIcon icon={faVuejs} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="WORDPRESS">
+          <FontAwesomeIcon icon={faWordpress} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="BOOTSTRAP / TAILWIND CSS">
+          <FontAwesomeIcon icon={faPalette} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="MYSQL / POSTGRESQL / MARIA DB">
+          <FontAwesomeIcon icon={faDatabase} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+
+        <span className="relative group cursor-pointer" data-tooltip="APACHE / NGINX">
+          <FontAwesomeIcon icon={faServer} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 hover:animate-bounce cursor-pointer" />
+        </span>
+        
+      </section>
+
       {/* Proyectos */}
-
-    <img src="img/contrastee.png" alt="" />
-
 
         <section id="projects" className="animate-fadeInUp delay-200">
           <h2 className="text-4xl font-bold mb-8 text-green-700 dark:text-green-400">Proyectos</h2>
@@ -56,7 +142,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ProjectCard
               title="Proyecto 1"
-              description="Una aplicación web para gestionar tareas diarias con React y Firebase."
+              description="Aplicación web para gestionar tareas diarias."
               link="#"
             />
             <ProjectCard
@@ -65,37 +151,46 @@ export default function App() {
               link="#"
             />
           </div>
+
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ProjectCard
+              title="Proyecto 3"
+              description="Una aplicación web para el control y gestion de documentos, con clave unica y firma digital."
+              link="#"
+            />
+            <ProjectCard
+              title="Proyecto 4"
+              description="Una pagina web para la gestion de medicamentos a pacientes "
+              link="#"
+            />
+          </div>
+
         </section>
 
         {/* Contacto */}
-        <section id="contact" className="animate-fadeInUp delay-400">
+        <section id="contact" className="text-center animate-fadeInUp delay-400">
           <h2 className="text-4xl font-bold mb-4 text-green-700 dark:text-green-400">Contacto</h2>
-          <FontAwesomeIcon icon={faLinkedin} className="text-3xl text-blue-500 hover:text-blue-400 transition" />
-          <p className="dark:text-gray-300 text-gray-800 text-lg max-w-prose">
-            Email:{" "}
-            <a
-              href="mailto:mendezjdaniel27@gmail.com"
-              className="text-green-700 underline hover:text-green-500"
-            >
-              mendezjdaniel27@gmail.com
+
+          <span className="relative group cursor-pointer" data-tooltip="mendezjdaniel27@gmail.com">
+            <a href="mailto:mendezjdaniel27@gmail.com" className="text-green-700 underline hover:text-green-500" >
+              <FontAwesomeIcon icon={faEnvelope} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 cursor-pointer" />
             </a>
-            <br />
-            LinkedIn:{" "}
-            <a
-              href="https://www.linkedin.com/in/jesus-mendez27/"
-              className="text-green-700 underline hover:text-green-500"
-            >
-              Jesus Mendez
+          </span>
+
+          <span className="relative group cursor-pointer" data-tooltip="LinkedIn: jesus-mendez27">
+            <a href="https://www.linkedin.com/in/jesus-mendez27" className="text-green-700 underline hover:text-green-500" >
+              <FontAwesomeIcon icon={faLinkedin} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 cursor-pointer" />
             </a>
-            <br />
-            GitHub:{" "}
-            <a
-              href="mailto:mendezjdaniel27@gmail.com"
-              className="text-green-700 underline hover:text-green-500"
-            >
-              mendezjdaniel27@gmail.com
+          </span>
+
+          <span className="relative group cursor-pointer" data-tooltip="GitHub: mendezjdaniel27">
+            <a href="https://github.com/mendezjdaniel27" className="text-green-700 underline hover:text-green-500" >
+              <FontAwesomeIcon icon={faGithub} className="m-3 text-green-900 dark:text-green-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-transform duration-300 hover:scale-110 cursor-pointer" />
             </a>
-          </p>
+          </span>
+
+
+        
         </section>
       </main>
 

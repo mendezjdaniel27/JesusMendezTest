@@ -1,0 +1,23 @@
+/* Tooltip.css */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 40%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937; /* gray-900 */
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
